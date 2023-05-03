@@ -26,12 +26,12 @@ dotenv_file = os.path.join(BASE_DIR, ".env")
 if os.path.isfile(dotenv_file):
     dotenv.load_dotenv(dotenv_file)
 
-os.environ["SECRET_KEY"]
+SECRET_KEY=os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ["DJANGO_DEBUG"] == "True"
 
-ALLOWED_HOSTS = ["5432", "8000"]
+ALLOWED_HOSTS = []
 
 INTERNAL_IPS = [
     "127.0.0.1",
